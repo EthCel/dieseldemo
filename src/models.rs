@@ -1,4 +1,5 @@
 use diesel::prelude::*;
+use crate::schema::posts;
 
 #[derive(Queryable, Selectable)]
 #[diesel(table_name = crate::schema::posts)]
@@ -9,3 +10,11 @@ pub struct Post {
     pub body: String,
     pub published: bool,
 }
+
+#[derive(Insertable)]
+#[diesel(table_name = posts)]
+pub struct NewPost<'a> {
+    pub title: &'a str,
+    pub body: &'a str,
+}
+

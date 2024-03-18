@@ -1,4 +1,4 @@
-//use self::modules::*;
+/use self::models::*;
 use diesel::prelude::*;
 use diesel_demo::*;
 
